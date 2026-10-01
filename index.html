@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabarees Waran | BSc Computer Science Portfolio</title>
+  <meta name="description" content="Portfolio of Sabarees Waran, BSc Computer Science student at SRM University. Python and full stack development." />
+
+  <!-- Fonts (the site still works with fallback fonts if you are offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ============ LOADING SCREEN ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="ld-panel ld-panel--top"></div>
+    <div class="ld-panel ld-panel--bottom"></div>
+
+    <div class="ld-content">
+      <span class="ld-glow"></span>
+
+      <div class="ld-logo">
+        <svg class="ld-svg" viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="ldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#8b5cf6" />
+              <stop offset="0.5" stop-color="#22d3ee" />
+              <stop offset="1" stop-color="#ec4899" />
+            </linearGradient>
+          </defs>
+          <circle class="ld-track" cx="60" cy="60" r="54" />
+          <circle class="ld-arc" id="ldArc" cx="60" cy="60" r="54" />
+        </svg>
+        <span class="ld-initials">SW</span>
+      </div>
+
+      <p class="ld-name">Sabarees Waran</p>
+      <p class="ld-role">BSc Computer Science</p>
+
+      <div class="ld-bar"><span id="ldBar"></span></div>
+      <div class="ld-meta">
+        <span id="ldStatus">Starting up</span>
+        <span id="ldPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BACKGROUND EFFECTS ============ -->
+  <div class="bg" aria-hidden="true">
+    <span class="blob blob--purple" data-depth="30"></span>
+    <span class="blob blob--cyan" data-depth="-25"></span>
+    <span class="blob blob--pink" data-depth="20"></span>
+    <span class="blob blob--orange" data-depth="-35"></span>
+    <span class="shape shape--ring"></span>
+    <span class="shape shape--square"></span>
+    <span class="shape shape--triangle"></span>
+    <canvas id="particles"></canvas>
+  </div>
+
+  <!-- Scroll progress line -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" aria-label="Go to top">
+      <span class="gradient-text">SW</span>
+    </a>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Main navigation">
+      <ul class="nav__list" id="navList">
+        <li><a href="#home" class="nav__link">Home</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#education" class="nav__link">Education</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#internships" class="nav__link">Internships</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#certificates" class="nav__link">Certificates</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <!-- The glowing pill that slides under the active link -->
+        <span class="nav__indicator" id="navIndicator"></span>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="hero__hello reveal">Hi, I'm</p>
+          <h1 class="hero__name reveal"><span class="gradient-text">Sabarees Waran</span></h1>
+          <p class="hero__typing reveal">
+            <span id="typing"></span><span class="cursor">|</span>
+          </p>
+          <p class="hero__intro reveal">
+            BSc Computer Science student at SRM University, Tenkasi. I have interned as a
+            Python Developer and a Full Stack Development Intern, and I build web projects
+            with HTML, CSS, JavaScript and SQL.
+          </p>
+
+          <ul class="hero__chips reveal">
+            <li class="chip">BSc Computer Science</li>
+            <li class="chip">3rd Year (2024 - 2027)</li>
+            <li class="chip">Tenkasi, Tamil Nadu</li>
+          </ul>
+
+          <div class="hero__buttons reveal">
+            <a href="#projects" class="btn btn--primary">View My Work</a>
+            <!-- Your resume IMAGE goes in the resume folder with this exact name.
+                 If your image is .jpg, change .png to .jpg here. -->
+            <a href="resume/Sabarees_Waran_Resume.png" class="btn btn--ghost" download>Download Resume</a>
+          </div>
+
+          <ul class="hero__social reveal" aria-label="Social links">
+            <li><a href="https://github.com/sabareesw186-blip" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+            </a></li>
+            <li><a href="https://linkedin.com/in/sabareeswaran" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.75 9.75h3.84v1.54h.05c.54-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.66 4.8 6.13V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.59V21h-4z"/></svg>
+            </a></li>
+            <li><a href="mailto:sabareesw186@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.1L12 12.4 19.5 7.1V7L12 12.2z"/></svg>
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Profile photo with animated gradient ring -->
+        <div class="hero__photo reveal">
+          <div class="photo">
+            <div class="photo__ring"></div>
+            <!-- Put your photo at: images/profile.jpg -->
+            <img src="images/profile.jpeg" alt="Portrait of Sabarees Waran" id="profileImg"
+                 onerror="this.style.display='none';this.parentElement.classList.add('photo--empty')" />
+            <span class="photo__fallback" aria-hidden="true">SW</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll to About section"><span></span></a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">About <span class="gradient-text">Me</span></h2>
+          <p class="section__sub">A quick look at who I am and what I do.</p>
+        </header>
+
+        <div class="about glass glow-border reveal">
+          <div class="about__body">
+            <p>
+              I'm Sabarees Waran, a second-year BSc Computer Science student at SRM University in
+              Tenkasi, Tamil Nadu. I enjoy building web applications and working with Python.
+            </p>
+            <p>
+              I interned as a Python Developer at Tilicon Veli, where I wrote scripts to automate data
+              processing and analysis. At Sentinix, as a Full Stack Development Intern, I built and
+              improved web applications and worked on responsive user interfaces, database integration
+              and API handling.
+            </p>
+            <p>
+              I have built a School Portal and an Admission Portal, completed online courses in Python
+              and Web Development, and actively take part in college events and technical activities.
+            </p>
+          </div>
+
+          <!-- Counters use only numbers that can be counted on the resume -->
+          <ul class="stats">
+            <li class="stat"><span class="stat__num" data-count="2">0</span><span class="stat__label">Internships</span></li>
+            <li class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Projects</span></li>
+            <li class="stat"><span class="stat__num" data-count="2">0</span><span class="stat__label">Certifications</span></li>
+            <li class="stat"><span class="stat__num" data-count="15">0</span><span class="stat__label">Skills &amp; Tools</span></li>
+          </ul>
+        </div>
+
+        <h3 class="sub-title reveal">Achievements</h3>
+        <ul class="achievements">
+          <li class="achievement glass reveal"><span class="achievement__icon" aria-hidden="true">&#9733;</span>Completed online courses in Python and Web Development.</li>
+          <li class="achievement glass reveal"><span class="achievement__icon" aria-hidden="true">&#9733;</span>Built multiple projects including a school portal and an admission portal.</li>
+          <li class="achievement glass reveal"><span class="achievement__icon" aria-hidden="true">&#9733;</span>Actively participate in college events and technical activities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">My <span class="gradient-text">Education</span></h2>
+          <p class="section__sub">Where I'm studying right now.</p>
+        </header>
+
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="card glass glow-border">
+              <time class="card__date">2023 - 2027 (currently 2nd year)</time>
+              <h3 class="card__title">B.Sc. Computer Science</h3>
+              <p class="card__org">SRM University</p>
+              <p class="card__place">Tenkasi, Tamil Nadu</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">My <span class="gradient-text">Skills</span></h2>
+          <p class="section__sub">Languages, frameworks, tools and libraries I work with.</p>
+        </header>
+
+        <!-- Each skill is its own card. No percentages, because the resume does not give any. -->
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Languages</h3>
+          <ul class="skill-grid">
+            <li class="skill skill--purple"><span class="skill__icon">Py</span>Python</li>
+            <li class="skill skill--orange"><span class="skill__icon">&lt;/&gt;</span>HTML</li>
+            <li class="skill skill--cyan"><span class="skill__icon">JS</span>JavaScript</li>
+            <li class="skill skill--blue"><span class="skill__icon">{ }</span>CSS</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Frameworks</h3>
+          <ul class="skill-grid">
+            <li class="skill skill--cyan"><span class="skill__icon">Re</span>React</li>
+            <li class="skill skill--purple"><span class="skill__icon">No</span>Node.js</li>
+            <li class="skill skill--pink"><span class="skill__icon">Ex</span>Express.js</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Developer Tools</h3>
+          <ul class="skill-grid">
+            <li class="skill skill--orange"><span class="skill__icon">Gt</span>Git</li>
+            <li class="skill skill--purple"><span class="skill__icon">Gh</span>GitHub</li>
+            <li class="skill skill--blue"><span class="skill__icon">VS</span>VS Code</li>
+            <li class="skill skill--pink"><span class="skill__icon">Pm</span>Postman</li>
+            <li class="skill skill--cyan"><span class="skill__icon">My</span>MySQL</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group__title">Libraries</h3>
+          <ul class="skill-grid">
+            <li class="skill skill--blue"><span class="skill__icon">Pd</span>Pandas</li>
+            <li class="skill skill--purple"><span class="skill__icon">Np</span>NumPy</li>
+            <li class="skill skill--orange"><span class="skill__icon">Mp</span>Matplotlib</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERNSHIPS ============ -->
+    <section class="section" id="internships">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">My <span class="gradient-text">Internships</span></h2>
+          <p class="section__sub">Hands-on experience in Python and full stack development.</p>
+        </header>
+
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="card glass glow-border">
+              <time class="card__date">May 2025 - Jun 2025</time>
+              <h3 class="card__title">Python Developer Intern</h3>
+              <p class="card__org">Tilicon Veli</p>
+              <p class="card__place">Tenkasi, Tamil Nadu</p>
+              <ul class="card__list">
+                <li>Developed and maintained Python scripts to automate data processing and analysis.</li>
+                <li>Worked with real-world datasets and implemented data handling, file operations and basic automation tasks.</li>
+                <li>Gained hands-on experience in Python development and problem solving.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <div class="card glass glow-border">
+              <time class="card__date">Jul 2025 - Aug 2025</time>
+              <h3 class="card__title">Full Stack Development Intern</h3>
+              <p class="card__org">Sentinix</p>
+              <p class="card__place">Tenkasi, Tamil Nadu</p>
+              <ul class="card__list">
+                <li>Built and enhanced web applications using HTML, CSS, JavaScript and backend technologies.</li>
+                <li>Collaborated with the team to design and implement responsive user interfaces.</li>
+                <li>Learned and applied full stack development concepts, including database integration and API handling.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">My <span class="gradient-text">Projects</span></h2>
+          <p class="section__sub">Web projects I have built.</p>
+        </header>
+
+        <div class="project-grid">
+          <article class="project glass glow-border reveal tilt">
+            <div class="project__top project__top--purple"><span>School Portal</span></div>
+            <div class="project__body">
+              <time class="card__date">Mar 2025 - Apr 2025</time>
+              <h3 class="card__title">School Portal</h3>
+              <ul class="card__list">
+                <li>Developed a responsive school portal with student, teacher and admin modules.</li>
+                <li>Implemented user authentication and role-based access using JavaScript.</li>
+                <li>Used SQL for data management and created features like student registration, course details and notices.</li>
+              </ul>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul>
+            </div>
+          </article>
+
+          <article class="project glass glow-border reveal tilt">
+            <div class="project__top project__top--cyan"><span>Admission Portal</span></div>
+            <div class="project__body">
+              <time class="card__date">Apr 2025 - May 2025</time>
+              <h3 class="card__title">Admission Portal</h3>
+              <ul class="card__list">
+                <li>Built a complete admission portal with a user-friendly interface.</li>
+                <li>Implemented a multi-step form to collect student, parent and course details.</li>
+                <li>Stored all admission data in a SQL database and displayed a success message after submission.</li>
+              </ul>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul>
+            </div>
+          </article>
+
+          <article class="project glass glow-border reveal tilt">
+            <div class="project__top project__top--pink"><span>Personal Portfolio</span></div>
+            <div class="project__body">
+              <time class="card__date">Jan 2025</time>
+              <h3 class="card__title">Personal Portfolio</h3>
+              <ul class="card__list">
+                <li>Created a personal "About Me" portfolio using HTML, CSS and JavaScript.</li>
+                <li>Designed a clean and responsive layout for better user experience.</li>
+                <li>Hosted the project locally using VS Code.</li>
+              </ul>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- The resume has no per-project links, so there are no demo buttons.
+             This button links to the GitHub profile from the resume. -->
+        <p class="projects__more reveal">
+          <a href="https://github.com/sabareesw186-blip" target="_blank" rel="noopener" class="btn btn--ghost">See my GitHub profile</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATES ============ -->
+    <section class="section" id="certificates">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">My <span class="gradient-text">Certifications</span></h2>
+          <p class="section__sub">Online courses I have completed.</p>
+        </header>
+
+        <div class="cert-grid">
+          <article class="cert glass glow-border reveal">
+            <span class="cert__badge cert__badge--purple" aria-hidden="true">Py</span>
+            <h3 class="card__title">Python Programming</h3>
+            <p class="card__org">Great Learning</p>
+          </article>
+          <article class="cert glass glow-border reveal">
+            <span class="cert__badge cert__badge--orange" aria-hidden="true">Web</span>
+            <h3 class="card__title">Web Development</h3>
+            <p class="card__org">Udemy</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title">Get In <span class="gradient-text">Touch</span></h2>
+          <p class="section__sub">Reach out through any of these.</p>
+        </header>
+
+        <div class="contact">
+          <ul class="contact__list">
+            <li class="reveal"><a class="contact__card glass glow-border" href="tel:+918248456030">
+              <span class="contact__icon contact__icon--purple" aria-hidden="true">&#9742;</span>
+              <span><strong>Phone</strong><br />+91 8248456030</span></a></li>
+            <li class="reveal"><a class="contact__card glass glow-border" href="mailto:sabareesw186@gmail.com">
+              <span class="contact__icon contact__icon--cyan" aria-hidden="true">&#9993;</span>
+              <span><strong>Email</strong><br />sabareesw186@gmail.com</span></a></li>
+            <li class="reveal"><a class="contact__card glass glow-border" href="https://linkedin.com/in/sabareeswaran" target="_blank" rel="noopener">
+              <span class="contact__icon contact__icon--pink" aria-hidden="true">in</span>
+              <span><strong>LinkedIn</strong><br />linkedin.com/in/sabareeswaran</span></a></li>
+            <li class="reveal"><a class="contact__card glass glow-border" href="https://github.com/sabareesw186-blip" target="_blank" rel="noopener">
+              <span class="contact__icon contact__icon--orange" aria-hidden="true">&lt;/&gt;</span>
+              <span><strong>GitHub</strong><br />github.com/sabareesw186-blip</span></a></li>
+          </ul>
+
+          <!-- This form has no backend. Pressing the button opens your email app
+               with the message filled in. See script.js (section 10). -->
+          <form class="form glass glow-border reveal" id="contactForm" novalidate>
+            <div class="field">
+              <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" />
+              <label for="name">Your name</label>
+            </div>
+            <div class="field">
+              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
+              <label for="email">Your email</label>
+            </div>
+            <div class="field">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+              <label for="message">Your message</label>
+            </div>
+            <button type="submit" class="btn btn--primary">Open in my email app</button>
+            <p class="form__note" id="formNote" role="status">This form opens your email app. It does not send messages by itself.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__wave" aria-hidden="true"></div>
+    <div class="container footer__inner">
+      <p class="footer__logo gradient-text">Sabarees Waran</p>
+      <p class="footer__role">BSc Computer Science | SRM University</p>
+      <ul class="footer__links">
+        <li><a href="https://github.com/sabareesw186-blip" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/sabareeswaran" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:sabareesw186@gmail.com">Email</a></li>
+      </ul>
+      <p class="footer__copy">&copy; <span id="year">2026</span> Sabarees Waran. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">&#8593;</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
